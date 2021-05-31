@@ -11,7 +11,6 @@ minutos = 0
 #**********************************************
 while True: # validação das escolhas
         while crianca.horas < 18:
-                crianca.vizual() 
                 escolha = int(input(''))
                           
                 if escolha == 0:  
