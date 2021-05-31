@@ -1,80 +1,138 @@
 class Acoes:
-    def __init__(self, levantar, escola,comer,banhar,brincar,matarAula,estudar,dormir):
-        self.levantar = levantar
-        self.escola = escola
-        self.comer = comer
-        self.banhar = banhar
-        self.brincar = brincar
-        self.matarAula = matarAula
-        self.estuda = estudar
-        self.dormir = dormir
+    def __init__(self):              
+        self.status = []
+        self.horas = 6
+        self.minutos = 0
 
-    def levantar1(self):
-        contador = False
-        while not contador:
-            resposta = input(input('Você irá levantar? [S/N] '))
-            if resposta == 'S':
+    def vizual(self):
+        print("""      
+                [0] Tomar Banho
+                [1] Tomar Café 
+                [2] Brincar
+                [3] Comer
+                [4] Escola
+                [5] Estudar
+                [6] Soneca 
+        """) 
 
-    def escolhas(self):
-        escolhas = str(input('Escolha uma ação: '))
-        if escolhas == 0:
-            print('Você está limpo.')
-        elif escolhas == 1:
-            print('Você está limpo.')
-        elif self.pele == 2:
-            print('Você está limpo.')
-        elif self.pele == 3:
-            print('Você está limpo.')
-        elif self.pele == 4:
-            print('Você está limpo.')
-
-        [0] Tomar Banho
-        [1] Tomar Café 
-        [2] Comer
-        [3] Brincar
-        [4] Enrrolar 5 Minutinhos
-        [5] Escola
-        [6] Matar 
-        [7] Estudar
-        [8] Dormir 
-          
-
-self.pele = str(input("""Escolha a cor da Pele: 
-
-                [0] Preta
-                [1] Branca
-                [2] Amarela
-                [3] Parda 
-                [4] Indigêna
         
-        """))
-        if self.pele == 0:
-            self.pele = 'Preta'
-        elif self.pele == 1:
-            self.pele = 'Branca'
-        elif self.pele == 2:
-            self.pele = 'Amarela'
-        elif self.pele == 3:
-            self.pele = 'Parda'
-        elif self.pele == 4:
-            self.pele = 'Parda'
+    def levantar(self):
+        resposta = str(input('Você irá levantar? [S/N] ').upper())
+        while True:
+            if resposta == 'S':
+                print('Seu dia começou! Escolha suas ações: ')
+                print("""      
+                [0] Tomar Banho
+                [1] Tomar Café 
+                [2] Brincar
+                [3] Comer
+                [4] Escola
+                [5] Estudar
+                [6] Soneca """)
+                break
+            else:
+                print('Você está perdendo um lindo dia!')
+                resposta = str(input('Você irá levantar agora? [S/N] ').upper())
+
+    def tomarBanho(self):
+        self.minutos = 0
+        self.minutos += 30 
+        self.horas += 1                       
+        if 'Está limpo' not in self.status:                               
+            self.status.append('Está limpo')                           
+            print(self.status)  
+            print(f'Relogio : {self.horas}:{self.minutos} AM') 
+            return self.status
+
+    def cafe(self):
+        self.minutos += 30 
+        self.horas +=1                  
+        if 'Está sem fome' not in self.status:                               
+            if self.horas < 10:                            
+                self.status.append('Está sem fome')
+                print(self.status)  
+                print(f'Relogio : {self.horas}:{self.minutos}0 AM')
+                return self.status 
+            else:
+                print('Não é mais horario para tomar café.')
+                return self.status       
+
+    def brincadeira(self):
+        self.minutos = 0        
+        self.horas += 2                      
+        if 'Já brincou' not in self.status:                               
+            self.status.append('Já brincou')                           
+            print(self.status)  
+            print(f'Relogio : {self.horas}:{self.minutos} AM') 
+            return self.status
+        
+    def comida(self):
+        self.minutos = 0        
+        self.horas += 2                      
+        if 'Já comeu' not in self.status:                               
+            self.status.append('Já comeu')                           
+            print(self.status)  
+            print(f'Relogio : {self.horas}:{self.minutos} AM') 
+            return self.status
+
+    def irEscola(self):
+        self.minutos = 0        
+        self.horas += 4
+        print('Você irá para a sala ou irá matar aula no patio?')
+        print("""
+                [0] Sala
+                [1] Matar Aula
+        """)  
+        opcao = int(input(''))
+        if opcao == 0:
+            if self.horas < 12:
+                if 'Teve boa aula' not in self.status:                               
+                    self.status.append('Teve boa aula')                           
+                    print(self.status)  
+                    print(f'Relogio : {self.horas}:{self.minutos} AM') 
+                    return self.status        
+        elif opcao == 1:
+            if 'Matou aula e perdeu pontos' not in self.status:                               
+                    self.status.append('Matou aula e perdeu pontos')                           
+                    print(self.status)  
+                    print(f'Relogio : {self.horas}:{self.minutos} AM') 
+                    return self.status
+        else: 
+            print('Escolha invalida! Tente Novamente')
+            while True:
+                print('Escolha invalida! Tente Novamente')
+                print("""
+                [0] Sala
+                [1] Matar Aula
+    
+            """)
+
+    def estudar(self):
+        self.minutos = 0        
+        self.horas += 1                      
+        if 'Estudou bem' not in self.status:                               
+            self.status.append('Estudou bem')                           
+            print(self.status)  
+            print(f'Relogio : {self.horas}:{self.minutos} AM') 
+            return self.status
+
+    def tirarCochilo(self):
+        self.minutos = 0        
+        self.horas += 2                      
+        if 'Está sem sono' not in self.status:                               
+            self.status.append('Está sem sono')                           
+            print(self.status)  
+            print(f'Relogio : {self.horas}:{self.minutos} AM') 
+            return self.status
+
+   
 
 
 
 
+        
 
 
+            
 
-
-
-# def __init__(self):
-# self.acorda = 
-# self.levanta = 
-# self.dorme =
-
-# def despertador(self, acordar):
-#   self.acorda == acordar
-# def cochilo (self, cochilar):
-#   self.dorme == cochilar
-# def despertador(self, acordar):
-#   if
+    

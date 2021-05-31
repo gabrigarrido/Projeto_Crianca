@@ -1,29 +1,47 @@
-from estudante import Estudante
+from caracteristicas import Caracteristicas # import das classes e bibliotecas
 from acoes import Acoes
-
-crianca = Estudante()
-crianca.personagem()
-levantar = str(input('Você irá levantar? [S/N] '.upper.strip()[0]))
-escola = str(input)
-crianca = Acoes(levantar, escola,comer,banhar,brincar,matarAula,estudar,dormir)
-
-
-
-
- 
-print("""
+import os
+# **********************************************
+crianca = Caracteristicas() # Não lembro como se chama quando coloca as classes aqui
+crianca = Acoes()
+crianca.levantar()
+status = []
+horas = 6
+minutos = 0
+#**********************************************
+while True: # validação das escolhas
+        while crianca.horas < 18:
+                crianca.vizual() 
+                escolha = int(input(''))
+                          
+                if escolha == 0:  
+                        crianca.tomarBanho()                             
+                elif escolha == 1: 
+                        crianca.cafe()                             
+                elif escolha == 2:
+                       crianca.brincadeira()
+                elif escolha == 3:
+                       crianca.comida()
+                elif escolha == 4:
+                        crianca.irEscola()
+                elif escolha == 5:
+                        crianca.estudar()
+                elif escolha == 6: 
+                        crianca.tirarCochilo()
+                elif escolha == 7:
+                        print('|||||Fim do Jogo! Volte sempre.|||||')
+                        break         
+                else:
+                        print('Escolha invalida. Tente novamente')
+        else:
+                        print('Fim do dia! Hora de dormir, Boa noite!')
+                        break
+               
         
-        
-        [0] Tomar Banho
-        [1] Tomar Café 
-        [2] Comer
-        [3] Brincar
-        [4] Enrrolar 5 Minutinhos
-        [5] Escola
-        [6] Matar 
-        [7] Estudar
-        [8] Dormir 
-        
+                
+                
+          
 
-""")
+               
+
 

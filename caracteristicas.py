@@ -1,4 +1,4 @@
-class Estudante:
+class Caracteristicas:
     def __init__(self):
         self.nome = ''
         self.idade = ''
@@ -25,11 +25,6 @@ class Estudante:
                 [3] Azul        
         
         """).upper().strip()[0])
-        # while True:
-        #     if self.olhos != 0 or 1 or 2 or 3:
-        #         print('Escolha invalida. Tente novamente.')
-        #         self.olhos = str(input('Escolha a cor dos olhos: '))                
-        #         break
         if self.olhos == 0:
             self.olhos = 'Olhos Pretos'
         elif self.olhos == 1:
