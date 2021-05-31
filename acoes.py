@@ -45,7 +45,7 @@ class Acoes:
             return self.status
 
     def cafe(self):
-        self.minutos += 30 
+        self.minutos += 0
         self.horas +=1                  
         if 'Está sem fome' not in self.status:                               
             if self.horas < 10:                            
@@ -80,18 +80,18 @@ class Acoes:
         self.horas += 4
         print('Você irá para a sala ou irá matar aula no patio?')
         print("""
-                [0] Sala
-                [1] Matar Aula
+                [8] Sala
+                [9] Matar Aula
         """)  
         opcao = int(input(''))
-        if opcao == 0:
+        if opcao == 8:
             if self.horas < 12:
                 if 'Teve boa aula' not in self.status:                               
                     self.status.append('Teve boa aula')                           
                     print(self.status)  
                     print(f'Relogio : {self.horas}:{self.minutos} AM') 
                     return self.status        
-        elif opcao == 1:
+        elif opcao == 9:
             if 'Matou aula e perdeu pontos' not in self.status:                               
                     self.status.append('Matou aula e perdeu pontos')                           
                     print(self.status)  
@@ -102,8 +102,8 @@ class Acoes:
             while True:
                 print('Escolha invalida! Tente Novamente')
                 print("""
-                [0] Sala
-                [1] Matar Aula
+                [8] Sala
+                [9] Matar Aula
     
             """)
 

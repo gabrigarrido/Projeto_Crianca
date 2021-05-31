@@ -12,7 +12,7 @@ minutos = 0
 while True: # validação das escolhas
         while crianca.horas < 18:
                 escolha = int(input(''))
-                          
+                
                 if escolha == 0:  
                         crianca.tomarBanho()                             
                 elif escolha == 1: 
