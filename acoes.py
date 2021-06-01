@@ -14,21 +14,14 @@ class Acoes:
                 [5] Estudar
                 [6] Soneca 
         """) 
-
-        
+    
     def levantar(self):
+        print('<<<<>>>> Seu dia inicia quando você estiver pronto!<<<<>>>>')
+        print()
         resposta = str(input('Você irá levantar? [S/N] ').upper())
         while True:
             if resposta == 'S':
                 print('Seu dia começou! Escolha suas ações: ')
-                print("""      
-                [0] Tomar Banho
-                [1] Tomar Café 
-                [2] Brincar
-                [3] Comer
-                [4] Escola
-                [5] Estudar
-                [6] Soneca """)
                 break
             else:
                 print('Você está perdendo um lindo dia!')
@@ -45,7 +38,7 @@ class Acoes:
             return self.status
 
     def cafe(self):
-        self.minutos += 0
+        self.minutos = 0
         self.horas +=1                  
         if 'Está sem fome' not in self.status:                               
             if self.horas < 10:                            
@@ -68,7 +61,7 @@ class Acoes:
         
     def comida(self):
         self.minutos = 0        
-        self.horas += 2                      
+        self.horas += 1                      
         if 'Já comeu' not in self.status:                               
             self.status.append('Já comeu')                           
             print(self.status)  
@@ -84,13 +77,12 @@ class Acoes:
                 [9] Matar Aula
         """)  
         opcao = int(input(''))
-        if opcao == 8:
-            if self.horas < 12:
-                if 'Teve boa aula' not in self.status:                               
-                    self.status.append('Teve boa aula')                           
-                    print(self.status)  
-                    print(f'Relogio : {self.horas}:{self.minutos} AM') 
-                    return self.status        
+        if opcao == 8 :
+            if 'Teve boa aula' not in self.status:                               
+                self.status.append('Teve boa aula')                           
+                print(self.status)  
+                print(f'Relogio : {self.horas}:{self.minutos} AM') 
+                return self.status        
         elif opcao == 9:
             if 'Matou aula e perdeu pontos' not in self.status:                               
                     self.status.append('Matou aula e perdeu pontos')                           
@@ -109,7 +101,7 @@ class Acoes:
 
     def estudar(self):
         self.minutos = 0        
-        self.horas += 1                      
+        self.horas += 2                      
         if 'Estudou bem' not in self.status:                               
             self.status.append('Estudou bem')                           
             print(self.status)  
@@ -118,7 +110,7 @@ class Acoes:
 
     def tirarCochilo(self):
         self.minutos = 0        
-        self.horas += 2                      
+        self.horas += 1                      
         if 'Está sem sono' not in self.status:                               
             self.status.append('Está sem sono')                           
             print(self.status)  

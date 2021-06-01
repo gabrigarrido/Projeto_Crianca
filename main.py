@@ -1,8 +1,8 @@
 from caracteristicas import Caracteristicas # import das classes e bibliotecas
 from acoes import Acoes
-import os
 # **********************************************
-crianca = Caracteristicas() # Não lembro como se chama quando coloca as classes aqui
+crianca = Caracteristicas() # Instanciar um objeto
+crianca.personagem()
 crianca = Acoes()
 crianca.levantar()
 status = []
@@ -10,31 +10,36 @@ horas = 6
 minutos = 0
 #**********************************************
 while True: # validação das escolhas
-        while crianca.horas < 18:
-                escolha = int(input(''))
-                
+        while crianca.horas < 18: 
+                crianca.vizual()                
+                escolha = int(input(''))                          
                 if escolha == 0:  
-                        crianca.tomarBanho()                             
+                        crianca.tomarBanho()                                                     
                 elif escolha == 1: 
-                        crianca.cafe()                             
+                        crianca.cafe()                                                     
                 elif escolha == 2:
-                       crianca.brincadeira()
+                       crianca.brincadeira()                       
                 elif escolha == 3:
-                       crianca.comida()
+                       crianca.comida()                       
                 elif escolha == 4:
-                        crianca.irEscola()
+                        crianca.irEscola()                        
                 elif escolha == 5:
-                        crianca.estudar()
+                        crianca.estudar()                        
                 elif escolha == 6: 
-                        crianca.tirarCochilo()
+                        crianca.tirarCochilo()                        
                 elif escolha == 7:
                         print('|||||Fim do Jogo! Volte sempre.|||||')
                         break         
                 else:
-                        print('Escolha invalida. Tente novamente')
-        else:
-                        print('Fim do dia! Hora de dormir, Boa noite!')
-                        break
+                        print('Escolha invalida. Tente novamente')                    
+                     
+        if crianca.horas >= 18:
+                print("""
+        ---------------------------------------------------------------------------
+            -----<<<<<< SEU DIA CHEGOU AO FIM, HORA DE DORMIR. BOA NOITE!! >>>>>>-----
+        ---------------------------------------------------------------------------
+            """) 
+                break
                
         
                 

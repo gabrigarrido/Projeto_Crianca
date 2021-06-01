@@ -10,31 +10,54 @@ class Caracteristicas:
 
 
 
-    def personagem(self): 
-        print('Vamos montar seu personagem.')
+    def personagem(self):
+        print("""
+        ---------------------------------------------------------------------------
+            -----<<<<<<<<BEM VINDO AO JOGO DE VIDA VIRTUAL DA BLUE>>>>>>>>-----
+        ---------------------------------------------------------------------------
+            """) 
+        print()
+        print('<><><><><> VAMOS MONTAR SEU PERSONAGEM <><><><><>')
+        print()
         
         
-        self.nome = str(input('Digite o nome para seu personagem: ').upper().strip())
-        self.idade = int(input('Digite a idade para ele: '))
-        self.sexoB = str(input('Escolha o sexo do seu personagem: [M/F]: ').upper().strip()[0])        
-        self.olhos = str(input("""Escolha a cor dos olhos: 
+        self.nome = str(input('>>> Digite o nome para ele(a): ').upper().strip())
+        self.idade = int(input('>>> Digite a idade para ele(a): '))
+        while True:
+            if self.idade < 6 or self.idade > 12:
+                print('*** Idade invalida ***')
+                self.idade = int(input('>>> Digite a idade para ele(a): '))
+            else:
+                break       
+        self.sexoB = str(input('>>> Escolha o sexo do seu personagem: [M/F]: ').upper().strip()[0])
+        while self.sexoB not in 'MF':            
+            print('*** Sexo Invalido ***')
+            self.sexoB = str(input('>>> Escolha o sexo do seu personagem: [M/F]: ').upper().strip()[0])
+                        
+        tipoOlhos = int(input("""Escolha a cor dos olhos: 
 
                 [0] Preto
                 [1] Verde
                 [2] Castanho
                 [3] Azul        
         
-        """).upper().strip()[0])
-        if self.olhos == 0:
-            self.olhos = 'Olhos Pretos'
-        elif self.olhos == 1:
-            self.olhos = 'Olhos Verdes'
-        elif self.olhos == 2:
+        """))
+        if tipoOlhos == 0:
+            self.olhos = 'Pretos'
+        elif tipoOlhos == 1:
+            self.olhos = 'Verdes'
+        elif tipoOlhos == 2:
             self.olhos = 'Castanhos'
-        elif self.olhos == 3:
+        elif tipoOlhos == 3:
             self.olhos = 'Azuis'
-
-        self.pele = str(input("""Escolha a cor da Pele: 
+        else:
+            while True:
+                if tipoOlhos < 0 or tipoOlhos > 3:
+                    print('*** Escolha Invalida ***')
+                    tipoOlhos = int(input('>>> Escolha a cor dos olhos:: '))
+                else:
+                    break 
+        pele = int(input("""Escolha a cor da Pele: 
 
                 [0] Preta
                 [1] Branca
@@ -43,33 +66,45 @@ class Caracteristicas:
                 [4] Indigêna
         
         """))
-        if self.pele == 0:
+        if pele == 0:
             self.pele = 'Preta'
-        elif self.pele == 1:
+        elif pele == 1:
             self.pele = 'Branca'
-        elif self.pele == 2:
+        elif pele == 2:
             self.pele = 'Amarela'
-        elif self.pele == 3:
+        elif pele == 3:
             self.pele = 'Parda'
-        elif self.pele == 4:
-            self.pele = 'Parda'
-
-        self.cabelo = str(input("""Escolha a cor dos Cabelos: 
+        elif pele == 4:
+            self.pele = 'Indigêna'
+        else:
+            while True:
+                if pele < 0 or pele > 4:
+                    print('*** Escolha Invalida ***')
+                    pele = int(input('>>> Escolha a cor da Pele: '))
+                else:
+                    break 
+        cabelo = int(input("""Escolha a cor dos Cabelos: 
 
                 [0] Preto
                 [1] Ruivo
                 [2] Loiro
                        
         """))
-        if self.cabelo == 0:
+        if cabelo == 0:
             self.cabelo = 'Preto'
-        elif self.cabelo == 1:
+        elif cabelo == 1:
             self.cabelo = 'Ruivo'
-        elif self.cabelo == 2:
+        elif cabelo == 2:
             self.cabelo = 'Loiro'
+        else:
+            while True:
+                if cabelo < 0 or cabelo > 2:
+                    print('*** Escolha Invalida ***')
+                    cabelo = int(input('>>> Escolha a cor dos Cabelos: '))
+                else:
+                    break 
 
-
-        self.tipoCabelos = str(input("""Escolha o tipo dos cabelos: 
+        tipoCabelos = int(input("""Escolha o tipo dos cabelos: 
 
                 [0] Ondulados
                 [1] Lisos
@@ -77,24 +112,37 @@ class Caracteristicas:
                 [3] Crespos        
         
         """))
-        if self.cabelo == 0:
-            self.cabelo = 'Ondulados'
-        elif self.cabelo == 1:
-            self.cabelo = 'Lisos'
-        elif self.cabelo == 2:
-            self.cabelo = 'Cacheados'
-        elif self.cabelo == 3:
-            self.cabelo = 'Crespos'
-
-        print(f"""Seu personagem ficou assim
+        if tipoCabelos == 0:
+            self.tipoCabelos = 'Ondulados'
+        elif tipoCabelos == 1:
+            self.tipoCabelos = 'Lisos'
+        elif tipoCabelos == 2:
+            self.tipoCabelos = 'Cacheados'
+        elif tipoCabelos == 3:
+            self.tipoCabelos = 'Crespos'
+        else:
+            while True:
+                if tipoCabelos < 0 or tipoCabelos > 3:
+                    print('*** Escolha Invalida ***')
+                    tipoCabelos = int(input('>>> Escolha o tipo dos cabelos: '))
+                else:
+                    break 
         
-        Seu nome é: {self.nome}.
-        Com {self.idade} anos de idade.
-        Sexo escolhido foi: {self.sexoB}.
-        Com os olhos {self.olhos}.
-        Pele cor {self.pele}.
-        Cabelos {self.cabelo}.
+        print("""
+        ---------------------------------------------------------------------------
+            -----<<<<<< ESSE É SEU PERSONAGEM COM AS CARACTERISTICAS QUE ESCOLHEU >>>>>>-----
+        ---------------------------------------------------------------------------
+            """) 
+        print(f"""
         
+                     ><>< Seu nome é: {self.nome}.
+                     ><>< Com {self.idade} anos de Idade.
+                     ><>< Sexo escolhido foi: {self.sexoB}.
+                     ><>< Com os olhos {self.olhos}.
+                     ><>< Pele cor {self.pele}.
+                     ><>< Cabelos {self.cabelo}.
+                     ><>< Tipo dos Cabelos {self.tipoCabelos}.
+                            
         
         
         """)
